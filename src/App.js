@@ -3,29 +3,35 @@ import './App.css';
 
 import React from 'react'
 
-function App() {
+export default function App() {
   return (
     <div>
-   <MyComponent heading="Java" desc="java is cool"/>
-   <MyComponent heading="JavaScript" desc="javaScript is Hot"/>
-   <MyComponent heading="python" desc="python is intelligent"/>
-
-      
+      <MyComponent />
     </div>
-  )
+  );
 }
 
-function MyComponent({ heading, desc }){
+function MyComponent() {
+  const clickHandler = (e) => {
+    console.log(e);
+    // alert("Somethign Somethign!!", e);
+  };
+
   return (
-    <div className="bg-dark p-3 text-light mb-1">
-    <h1> Learning {heading}</h1>
-    <hr />
+    <div>
+      <h1>Hello World</h1>
 
-    <p>
-    <mark className="rounded alert-warning">{desc}</mark> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione reprehenderit dolorem laborum, tenetur fugiat ut! Eligendi fuga sint quae aspernatur!</p>
+      <input type="button" value="CLICK ME 1" onClick={clickHandler} />
+      <input
+        type="button"
+        value="CLICK ME 2"
+        onClick={(e) => clickHandler(e)} // Explicitly Passing the e
+      />
+      <input
+        type="button"
+        value="CLICK ME 33"
+        onClick={(e) => clickHandler()} // Removd the e intentionaly
+      />
     </div>
-  )
+  );
 }
-
-export default App
-
